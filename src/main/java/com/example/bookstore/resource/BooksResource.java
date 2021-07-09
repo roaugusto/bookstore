@@ -13,6 +13,24 @@ import java.util.List;
 public class BooksResource {
 
     private List<Book> books = new ArrayList<>();
+    Book book = new Book();
+
+    public BooksResource() {
+        book.setId(1);
+        book.setName("Harry Potter and the Chamber of Secrets");
+        book.setPrice(10.0);
+        books.add(book);
+        book = new Book();
+        book.setId(2);
+        book.setName("The Lord of the Rings");
+        book.setPrice(15.0);
+        books.add(book);
+        book = new Book();
+        book.setId(3);
+        book.setName("O Monge e o Executivo");
+        book.setPrice(7.0);
+        books.add(book);
+    }
 
     @PostMapping
     public Book addBook(@RequestBody Book book) {
