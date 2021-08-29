@@ -1,0 +1,17 @@
+version: '3'
+services:
+  tomcat1:
+    build: ./docker/
+    container_name: tomcat1
+    ports:
+    - "8082:8080"
+    volumes:
+    - C:\docker\tomcat1:/var/logs
+
+  tomcat2:
+    build: ./docker/
+    container_name: tomcat2
+    ports:
+    - "8085:8080"
+    volumes:
+    - C:\docker\tomcat2:/var/logs    

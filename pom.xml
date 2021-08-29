@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>helloworld</artifactId>
+	<artifactId>bookstore</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>helloworld</name>
+	<name>bookstore</name>
 	<packaging>war</packaging>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -26,11 +26,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>		
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -70,5 +65,28 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	
+	<profiles>
+		<!-- dev environment profile  -->
+		<profile>
+			<id>dev</id>
+			<build>
+				<finalName>${project.artifactId}-dev</finalName>
+				<filters>
+					<filter>src/main/resources/application.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<!-- cert environment profile  -->
+		<profile>
+			<id>cer</id>
+			<build>
+				<finalName>${project.artifactId}-cer</finalName>
+				<filters>
+					<filter>src/main/resources/application-cer.properties</filter>
+				</filters>
+			</build>
+		</profile>
+	</profiles>
+	
 </project>
